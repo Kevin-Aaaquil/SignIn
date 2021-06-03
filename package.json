@@ -4,8 +4,25 @@
   "description": "open source for signIn in web apps",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "clean":"rm -rf pakage-lock.json node_modules && npm run install"
   },
   "author": "kevin",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "chalk": "^2.4.2",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.17.2",
+    "method-override": "^3.0.0",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
 }
