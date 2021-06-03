@@ -1,0 +1,11 @@
+{
+  "name": "signin",
+  "version": "1.0.0",
+  "description": "open source for signIn in web apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon src/index.js"
+  },
+  "author": "kevin",
+  "license": "MIT"
+}
