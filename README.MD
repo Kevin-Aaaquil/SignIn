@@ -7,7 +7,7 @@ $ npm install
 ```
 for the node_modules to be initialized.
 
-Create a new file named `.env` for your secret environments
+Create a new file named `.env` for your secret environments, use `.envexample` as an example.
 
 Run
 ```
