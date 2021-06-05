@@ -15,7 +15,7 @@ initializePassport(
     id => users.find(user => user.id === id),  // integrate with db
 )
 
-const users = []   //will use database instead
+const users = []   //will use mongodb database instead
 
 app.set('view-engine', 'ejs')
 app.use(express.urlencoded({ extended: true })) // original code = false
