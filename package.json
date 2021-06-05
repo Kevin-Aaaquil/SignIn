@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
-    "clean":"rm -rf pakage-lock.json node_modules && npm run install"
+    "clean": "rm -rf pakage-lock.json node_modules && npm run install"
   },
   "author": "kevin",
   "license": "MIT",
