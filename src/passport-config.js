@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt')
 
 const  initialize = async (passport, getUserByEmail, getUserById) => {
   const authenticateUser = async (email, password, done) => {
-    const user = await getUserByEmail(email)
+    const user = await getUserByEmail(email)            // await for email
     if (user == null) {
       return done(null, false, { message: 'No user with that email' })
     }
@@ -22,7 +22,7 @@ const  initialize = async (passport, getUserByEmail, getUserById) => {
   passport.use(new LocalStrategy({ usernameField: 'email' }, authenticateUser))
   passport.serializeUser((user, done) => done(null, user.id))
   passport.deserializeUser(async (id, done) => {
-    return done(null, await getUserById(id))
+    return done(null, await getUserById(id))      // await for id
   })
 }
 

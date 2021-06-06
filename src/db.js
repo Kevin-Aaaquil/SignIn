@@ -22,6 +22,7 @@ const connect = (async ()=>{
     }
 })
 
+// function to call DB
 const DB = async ()=>{
     if(!db){
         db=await connect();
