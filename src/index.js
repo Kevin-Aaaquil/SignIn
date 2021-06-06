@@ -7,15 +7,17 @@ const flash = require('express-flash')
 const session = require('express-session')
 const methodOveride = require('method-override')
 const chalk = require('chalk');
+const DB = require('./db.js');
 
 const initializePassport = require('./passport-config.js')
 initializePassport(
     passport,
-    email => users.find(user => user.email === email),    // integrate with db
-    id => users.find(user => user.id === id),  // integrate with db
+    async email => await (await DB()).collection('credentials').findOne({"email":email}),    // integrate with db
+    async id => await (await DB()).collection('credentials').findOne({"id":id}),  // integrate with db
 )
 
-const users = []   //will use mongodb database instead
+//const users = []   //will use mongodb database instead
+DB().catch(err => console.log(err));  //Initialized DB connection
 
 app.set('view-engine', 'ejs')
 app.use(express.urlencoded({ extended: true })) // original code = false
@@ -49,14 +51,14 @@ app.get('/register', checkNotAuthenticated, (req, res) => {
 
 app.post('/register', checkNotAuthenticated, async (req, res) => {
     try {
-        const hashedPassword = await bcrypt.hash(req.body.password, 10)
-        users.push({
+        const hashedPassword = await bcrypt.hash(req.body.password, 16)
+        const user = {
             id: Date.now().toString(),
-            name: req.body.name,
+            name:req.body.name,
             email:req.body.email,
-            password: hashedPassword
-        })
-        console.log(users)
+            password: hashedPassword,
+        }
+        await(await DB()).collection('credentials').insertOne(user);
         res.redirect('/login')
     } catch {
         res.redirect('/register')
