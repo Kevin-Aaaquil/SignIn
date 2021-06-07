@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
-    "clean": "rm -rf pakage-lock.json node_modules && npm run install"
+    "clean": "rm -rf pakage-lock.json node_modules && npm install"
   },
   "author": "kevin",
   "license": "MIT",
@@ -19,6 +19,7 @@
     "express-flash": "^0.0.2",
     "express-session": "^1.17.2",
     "method-override": "^3.0.0",
+    "mongodb": "^3.6.9",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0"
   },
