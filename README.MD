@@ -2,7 +2,7 @@
 This is just a run out of the mill LogIn, SignUp and LogOut page written in JavaScript using Nodejs and Express library along with several other libraries including Passport.
 
 ## Multiple Routes
-visit branch `using routes` for viewing ways to use multiple routes
+visit branch `usingRoutes` for viewing ways to use multiple routes
 
 After installing code hit
 ```
